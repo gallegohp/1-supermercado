@@ -1,24 +1,25 @@
 spring:
   application:
-    name: supermercado
+    name: micromarket
   datasource: 
-    url: jdbc:mysql:gondola.proxy.rlwy.net:46263/railway
+    url: jdbc:mysql://localhost:3306/micromarket
     username: root
-    password: ckRyWcmrnZNceHxxmyloJxyzeTRmpCAR
+    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: none
     show-sql: true
-    properties:  
+    properties:
+      hibernate:                              # ← faltaba este nivel
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
     database-platform: org.hibernate.dialect.MySQLDialect
 
-jackson:
-  serialization:
-    indent-output: true
+  jackson:                                    # ← debe estar dentro de spring:
+    serialization:
+      indent-output: true
 
 logging:
   level:
@@ -27,4 +28,4 @@ logging:
     org.hibernate.type.descriptor.sql: TRACE
 
 server:
-  port: 9091
+  port: 9090
