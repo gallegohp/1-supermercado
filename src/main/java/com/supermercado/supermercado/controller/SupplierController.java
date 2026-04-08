@@ -60,6 +60,4 @@ public class SupplierController {
         return ResponseEntity.ok(supplierService.getByNit(nit));
     }
 
-
-   
 }
