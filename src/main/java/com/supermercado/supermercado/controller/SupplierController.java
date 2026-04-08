@@ -1,6 +1,7 @@
 package com.supermercado.supermercado.controller;
 
 import com.supermercado.supermercado.dto.*;
+import com.supermercado.supermercado.entity.StockEntryDTO;
 import com.supermercado.supermercado.services.SupplierService;
 
 import jakarta.validation.Valid;
@@ -60,4 +61,10 @@ public class SupplierController {
         return ResponseEntity.ok(supplierService.getByNit(nit));
     }
 
+
+    @PostMapping("/warehouse/entry")
+    public ResponseEntity<String> stockEntry(@Valid @RequestBody StockEntryDTO request) {
+        supplierService.stockEntry(request);
+        return ResponseEntity.ok("Stock updated successfully");
+    }
 }

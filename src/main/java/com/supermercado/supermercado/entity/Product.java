@@ -2,7 +2,6 @@
 package com.supermercado.supermercado.entity;
 import jakarta.persistence.*;
 import lombok.*;
-import java.math.BigDecimal;
 import java.util.HashSet;
 
 import java.util.Set;
@@ -29,7 +28,7 @@ public class Product {
     private String description;
 
     @Column(name = "precio", nullable = false)
-    private BigDecimal price;
+    private double cost;
 
     @Column(name = "stock", nullable = false)
     private Integer stock;

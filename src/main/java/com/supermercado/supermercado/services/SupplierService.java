@@ -2,6 +2,7 @@ package com.supermercado.supermercado.services;
 
 import com.supermercado.supermercado.dto.*;
 import com.supermercado.supermercado.entity.Product;
+import com.supermercado.supermercado.entity.StockEntryDTO;
 import com.supermercado.supermercado.entity.Supplier;
 import com.supermercado.supermercado.repository.ProductRepository;
 import com.supermercado.supermercado.repository.SupplierRepository;
