@@ -31,7 +31,7 @@ public class Sale {
     @JoinColumn(name = "empleado_id", nullable = false)
     private Employee employee;
 
-    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sale", cascade = CascadeType.ALL)
     private List<SaleDetails> details;
 
     @PrePersist
