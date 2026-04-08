@@ -1,4 +1,4 @@
-package com.proveedores_almacen.proveedores_almacen.dto;
+package com.supermercado.supermercado.entity;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
