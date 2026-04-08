@@ -5,7 +5,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
-
 @Entity
 @Table(name = "ventas")
 @Data
@@ -15,16 +14,16 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "fecha", nullable = false)
     private LocalDateTime date;
-    
-    @Column(nullable = false)
+
+    @Column(name = "subtotal", nullable = false)
     private Double subtotal;
 
-    @Column(nullable = false)
+    @Column(name = "iva", nullable = false)
     private Double vat;
 
-    @Column(nullable = false)
+    @Column(name = "total", nullable = false)
     private Double total;
 
     @ManyToOne
@@ -39,4 +38,3 @@ public class Sale {
         this.date = LocalDateTime.now();
     }
 }
-

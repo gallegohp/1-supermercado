@@ -20,12 +20,12 @@ public class SaleDetails {
     @JoinColumn(name = "producto_id", nullable = false)
     private Product product;
 
-    @Column(nullable = false)
+    @Column(name = "cantidad", nullable = false)
     private Integer amount;
 
-    @Column(name = "precio_unit", nullable = false)
+    @Column(name = "precio_unit", nullable = false) 
     private Double unitPrice;
 
-    @Column(nullable = false)
+    @Column(name = "subtotal", nullable = false)
     private Double subtotal;
 }
