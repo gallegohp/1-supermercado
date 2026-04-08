@@ -1,0 +1,498 @@
+[
+  {
+    "v": 11,
+    "id": "cmngldpu70g76ij1lgnufxocd",
+    "name": "MODULO 1",
+    "folders": [],
+    "requests": [
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n  \"name\": \"Leche Entera\",\n  \"description\": \"Leche entera 1 litro\",\n  \"cost\": 3200.00,\n  \"categoryId\": 1,\n  \"stock\": 50,\n  \"barcode\": \"7702098000124\",\n  \"active\": true\n}",
+          "contentType": "application/json"
+        },
+        "name": "Listar Productos",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/products",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnplooww00zxf31mmhbohvou"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n  \"name\": \"Leche Entera\",\n  \"description\": \"Leche entera 1 litro\",\n  \"cost\": 3200.00,\n  \"categoryId\": 1,\n  \"stock\": 50,\n  \"barcode\": \"7702098000124\",\n  \"active\": true\n}",
+          "contentType": "application/json"
+        },
+        "name": "get-productos",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/products",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnpltp02010ef31m06k361fu"
+      }
+    ],
+    "auth": {
+      "authType": "inherit",
+      "authActive": true
+    },
+    "headers": [],
+    "variables": [],
+    "description": null
+  },
+  {
+    "v": 11,
+    "id": "cmngldvkr0a7kh91la2vre82c",
+    "name": "MODULO 2",
+    "folders": [],
+    "requests": [
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "get-proveedores",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:8080/api/suppliers",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnprzizk00e1k71lvqnr2hjf"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n    \"nit\": \"900123456-1\",\n    \"name\": \"Distribuidor Nacional S.A\",\n    \"phone\": \"3001234567\",\n    \"email\": \"contacto@distnacional.com\",\n    \"address\": \"Calle 80 # 45-23, Bogotá\"\n}",
+          "contentType": "application/json"
+        },
+        "name": "Create Supplier",
+        "method": "POST",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/suppliers",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnps1ldg01g6kb1mxlwd4v98"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n    \"name\": \"Distribuidor Nacional Actualizado\",\n    \"nit\": \"900123456-1\",\n    \"phone\": \"3109876543\",\n    \"email\": \"nuevo@distnacional.com\",\n    \"address\": \"Carrera 15 # 100-50, Bogotá\"\n}",
+          "contentType": "application/json"
+        },
+        "name": "Update Supplier",
+        "method": "PUT",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/suppliers/1",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnps6k6101gpkb1mxvv2mjpt"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "Delete Supplier",
+        "method": "DELETE",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/suppliers/1",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnps7smi01gtkb1mj6chi0tm"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "Get Supplier By ID",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/suppliers/1",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnps9rnj01h1kb1m4t1o1ixf"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "Get Supplier By NIT",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/suppliers/nit/900123456-1",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnpsaroq01h5kb1m8wree48f"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "Search By Name",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/suppliers/search?name=Distri",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnpsb82101h7kb1m313y9dja"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n    \"productId\": 1,\n    \"supplierId\": 1,\n    \"quantity\": 50\n}",
+          "contentType": "application/json"
+        },
+        "name": "Stock Entry",
+        "method": "POST",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:8080/api/warehouse/entry",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnpsbxff01hakb1m4zx4fdgz"
+      }
+    ],
+    "auth": {
+      "authType": "inherit",
+      "authActive": true
+    },
+    "headers": [],
+    "variables": [],
+    "description": null
+  },
+  {
+    "v": 11,
+    "id": "cmngle38w0g77ij1l8bm7bzjt",
+    "name": "MODULO 3",
+    "folders": [],
+    "requests": [
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "get-empleados",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngo5lzn020tkg1mh6w64s0w"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "get/id-empleados",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados/1",
+        "responses": {},
+        "testScript": "",
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngo6pcm0as1h91lwkiapy5p"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n    \"identityCard\": \"1001234567\",\n    \"name\": \"Andrea Castro\",\n    \"role\": \"ADMINISTRADOR\",\n    \"hireDate\": \"2023-01-15\",\n    \"salary\": 3200000.00\n}\n",
+          "contentType": "application/json"
+        },
+        "name": "post-empleados",
+        "method": "POST",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados",
+        "responses": {},
+        "testScript": "",
+        "description": "{\n    \"identityCard\": \"1001234567\",\n    \"name\": \"Andrea Castro\",\n    \"role\": \"ADMINISTRADOR\",\n    \"hireDate\": \"2023-01-15\",\n    \"salary\": 3200000.00\n}\n ejemplo de agregar",
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngo7xoq020vkg1miigfbp3b"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n    \"identityCard\": \"1001234567\",\n    \"name\": \"Andrea Castro (Actualizado)\",\n    \"role\": \"CAJERO\",\n    \"hireDate\": \"2023-01-15\",\n    \"salary\": 2850000.00\n}",
+          "contentType": "application/json"
+        },
+        "name": "delete/id-empelados",
+        "method": "DELETE",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados/1",
+        "responses": {},
+        "testScript": "",
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngofpuh0as5h91l4dvk28x6"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n    \"identityCard\": \"1001234567\",\n    \"name\": \"Andrea Castro (Actualizado)\",\n    \"role\": \"CAJERO\",\n    \"hireDate\": \"2023-01-15\",\n    \"salary\": 2850000.00\n}\n",
+          "contentType": "application/json"
+        },
+        "name": "put/id-empleados",
+        "method": "PUT",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados/1",
+        "responses": {},
+        "testScript": "",
+        "description": "{\n    \"identityCard\": \"1001234567\",\n    \"name\": \"Andrea Castro (Actualizado)\",\n    \"role\": \"CAJERO\",\n    \"hireDate\": \"2023-01-15\",\n    \"salary\": 2850000.00\n}\n",
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngohgl40as6h91lxmrlnj0k"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "get/cargo-empleados",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados/cargo/AUXILIAR",
+        "responses": {},
+        "testScript": "",
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngoj8l50as7h91l68w0ox7k"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": null,
+          "contentType": null
+        },
+        "name": "get/rangoFecha-empleados",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/empleados/fecha?start=2023-01-01&end=2023-12-31",
+        "responses": {},
+        "testScript": "",
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmngokiwk020xkg1mhlz1i4m2"
+      }
+    ],
+    "auth": {
+      "authType": "inherit",
+      "authActive": true
+    },
+    "headers": [],
+    "variables": [],
+    "description": null
+  },
+  {
+    "v": 11,
+    "id": "cmnglebap0a7lh91l52xb7nh9",
+    "name": "MODULO 4",
+    "folders": [],
+    "requests": [
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n  \"name\": \"Leche Entera\",\n  \"description\": \"Leche entera 1 litro\",\n  \"cost\": 3200.00,\n  \"categoryId\": 1,\n  \"stock\": 50,\n  \"barcode\": \"7702098000124\",\n  \"active\": true\n}",
+          "contentType": "application/json"
+        },
+        "name": "get-sales",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/sales",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnpzgwqn06vvfv1ljfohj4q0"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n  \"employeeId\": 1,\n  \"items\": [\n    {\n      \"productId\": 3,\n      \"amount\": 6\n    }\n  ]\n}",
+          "contentType": "application/json"
+        },
+        "name": "post-sale",
+        "method": "POST",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/sales",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnq5d1jc0em3fz1ltnefrjob"
+      },
+      {
+        "v": "17",
+        "auth": {
+          "authType": "inherit",
+          "authActive": true
+        },
+        "body": {
+          "body": "{\n  \"employeeId\": 1,\n  \"items\": [\n    {\n      \"productId\": 3,\n      \"amount\": 6\n    }\n  ]\n}",
+          "contentType": "application/json"
+        },
+        "name": "Get-saleById",
+        "method": "GET",
+        "params": [],
+        "headers": [],
+        "endpoint": "http://localhost:9090/api/sales/1",
+        "responses": {},
+        "testScript": "",
+        "description": null,
+        "preRequestScript": "",
+        "requestVariables": [],
+        "id": "cmnq5dq5h0chrfv1l4axhh4ih"
+      }
+    ],
+    "auth": {
+      "authType": "inherit",
+      "authActive": true
+    },
+    "headers": [],
+    "variables": [],
+    "description": null
+  }
+]
