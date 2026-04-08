@@ -20,7 +20,6 @@ spring:
   jackson:                                    # ← debe estar dentro de spring:
     serialization:
       indent-output: true
-
 logging:
   level:
     org.springframework: INFO
