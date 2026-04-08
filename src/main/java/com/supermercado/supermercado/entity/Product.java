@@ -17,7 +17,7 @@ public class Product {
 
     private Integer stock; // Para la Regla de Negocio de validación
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "codigo_barras", nullable = false, unique = true)
     private String barcode; // Regla de Negocio 2
 
     private Boolean active = true;
