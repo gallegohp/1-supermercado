@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/sales")
 @RequiredArgsConstructor
@@ -20,5 +22,15 @@ public class SaleController {
     public ResponseEntity<SaleResponseDTO> register(@Valid @RequestBody SaleRequestDTO request) {
         SaleResponseDTO response = saleService.registerSale(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<SaleResponseDTO>> getAll() {
+        return ResponseEntity.ok(saleService.getAllSales());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<SaleResponseDTO> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(saleService.getSaleById(id));
     }
 }

@@ -11,11 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class SaleServiceImpl implements SaleService {
-    
+
     private final SaleRepository saleRepository;
     private final ProductRepository productRepository;
     private final EmployeeRepository employeeRepository;
@@ -24,7 +25,8 @@ public class SaleServiceImpl implements SaleService {
     @Transactional
     public SaleResponseDTO registerSale(SaleRequestDTO request) {
 
-        Employee employee = employeeRepository.findById(request.getEmployeeId()).orElseThrow(() -> new IllegalArgumentException("Empleado No Encontrado con Id: " + request.getEmployeeId()));
+        Employee employee = employeeRepository.findById(request.getEmployeeId()).orElseThrow(
+                () -> new IllegalArgumentException("Empleado No Encontrado con Id: " + request.getEmployeeId()));
 
         Sale sale = new Sale();
         sale.setDate(LocalDateTime.now());
@@ -35,10 +37,13 @@ public class SaleServiceImpl implements SaleService {
 
         for (SaleItemDTO itemDTO : request.getItems()) {
 
-            Product product = productRepository.findById(itemDTO.getProductId()).orElseThrow(() -> new IllegalArgumentException("Producto no encontrado ID: " + itemDTO.getProductId()));
+            Product product = productRepository.findById(itemDTO.getProductId()).orElseThrow(
+                    () -> new IllegalArgumentException("Producto no encontrado ID: " + itemDTO.getProductId()));
 
             if (product.getStock() < itemDTO.getAmount()) {
-                throw new RuntimeException("Stock insuficiente para: " + product.getName());
+                throw new IllegalArgumentException(
+                        "Stock insuficiente para el producto: '" + product.getName() + "'. Stock disponible: "
+                                + product.getStock() + ", cantidad solicitada: " + itemDTO.getAmount());
             }
 
             product.setStock(product.getStock() - itemDTO.getAmount());
@@ -75,10 +80,24 @@ public class SaleServiceImpl implements SaleService {
         SaleResponseDTO response = new SaleResponseDTO();
         response.setId(v.getId());
         response.setDate(v.getDate());
-        response.setEmployeeName(v.getEmployee().getName()); 
+        response.setEmployeeName(v.getEmployee().getName());
         response.setSubtotal(v.getSubtotal());
         response.setVat(v.getVat());
         response.setTotal(v.getTotal());
         return response;
+    }
+
+    @Override
+    public List<SaleResponseDTO> getAllSales() {
+        return saleRepository.findAll().stream()
+                .map(this::constructedResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public SaleResponseDTO getSaleById(Long id) {
+        Sale sale = saleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Venta no encontrada con Id: " + id));
+        return constructedResponse(sale);
     }
 }

@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Long id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado con Id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado con Id: " + id));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
        
         Product product = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+                .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado con Id: " + id));
 
         product.setActive(false);
 
