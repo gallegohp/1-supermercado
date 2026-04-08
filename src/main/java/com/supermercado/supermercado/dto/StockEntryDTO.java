@@ -1,4 +1,4 @@
-package com.supermercado.supermercado.entity;
+package com.supermercado.supermercado.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;

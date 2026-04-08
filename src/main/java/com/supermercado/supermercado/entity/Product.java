@@ -1,43 +1,54 @@
+
 package com.supermercado.supermercado.entity;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import java.math.BigDecimal;
+import java.util.HashSet;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "productos")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "codigo_barras", nullable = false, unique = true, length = 50)
+    private String barcode;
+
+    @Column(name = "nombre", nullable = false, length = 150)
     private String name;
 
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", length = 255)
     private String description;
 
     @Column(name = "precio", nullable = false)
-    private Double cost;
+    private BigDecimal price;
+
+    @Column(name = "stock", nullable = false)
+    private Integer stock;
+
+    @Column(name = "activo", nullable = false)
+    private Boolean active;
 
     @Column(name = "categoria_id", nullable = false)
     private Long categoryId; 
 
-    @Column(name = "stock", nullable = false)
-    private Integer stock; 
-
-    @Column(name = "codigo_barras", nullable = false, unique = true)
-    @JsonProperty("barcode") 
-    private String barcode;
-
-    @Column(name = "activo", nullable = false)
-    private Boolean active = true;
-
-    // @ManyToMany
-    // @JoinTable(name = "producto_proveedor", joinColumns = @JoinColumn(name =
-    // "producto_id"), inverseJoinColumns = @JoinColumn(name = "proveedor_id"))
-    // private List<Supplier> suppliers;
-    // Para Bryan
+    @ManyToMany
+    @JoinTable(
+        name = "producto_proveedor",
+        joinColumns = @JoinColumn(name = "producto_id"),
+        inverseJoinColumns = @JoinColumn(name = "proveedor_id")
+    )
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @Builder.Default
+    private Set<Supplier> suppliers = new HashSet<>();
 }
+
