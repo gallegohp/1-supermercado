@@ -32,7 +32,7 @@ public class Supplier {
     @Column(name = "direccion", length = 255)
     private String address;
 
-    @ManyToMany(mappedBy = "supplier")
+    @ManyToMany(mappedBy = "suppliers")
     @ToString.Exclude    
     @EqualsAndHashCode.Exclude  
     @Builder.Default
