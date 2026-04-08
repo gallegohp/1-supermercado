@@ -1,7 +1,10 @@
 package com.supermercado.supermercado.services;
 
 import com.supermercado.supermercado.dto.*;
+import com.supermercado.supermercado.entity.Product;
+import com.supermercado.supermercado.entity.StockEntryDTO;
 import com.supermercado.supermercado.entity.Supplier;
+import com.supermercado.supermercado.repository.ProductRepository;
 import com.supermercado.supermercado.repository.SupplierRepository;
 
 import org.springframework.stereotype.Service;
@@ -12,8 +15,11 @@ import java.util.List;
 public class SupplierService {
 
     private final SupplierRepository supplierRepository;
-    public SupplierService(SupplierRepository supplierRepository) {
+    private final ProductRepository productRepository;
+
+    public SupplierService(SupplierRepository supplierRepository, ProductRepository productRepository) {
         this.supplierRepository = supplierRepository;
+        this.productRepository = productRepository;
     }
 
 
@@ -83,6 +89,19 @@ public class SupplierService {
         return mapToDTO(supplier);
     }
 
+    public void stockEntry(StockEntryDTO request) {
+        Product product = productRepository.findById(request.getProductId())
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + request.getProductId()));
+
+        Supplier supplier = supplierRepository.findById(request.getSupplierId())
+                .orElseThrow(() -> new RuntimeException("Supplier not found with id: " + request.getSupplierId()));
+
+        product.getSuppliers().add(supplier);
+
+        product.setStock(product.getStock() + request.getQuantity());
+
+        productRepository.save(product);
+    }
 
 
     private SupplierResponseDTO mapToDTO(Supplier supplier) {
